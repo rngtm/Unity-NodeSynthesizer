@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f797d31a65b4c47b78ca83c1d57bfd, type: 3}
+  m_Name: 1_Sine
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 114099731895078562}
+  - {fileID: 114453496444914630}
+--- !u!114 &114099731895078562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2011e4b393323fb468af24f9b71f32e0, type: 3}
+  m_Name: Output Master
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -136, y: -72}
+  ports:
+    keys:
+    - OutputSound
+    values:
+    - _fieldName: OutputSound
+      _node: {fileID: 114099731895078562}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: OutputNode
+        node: {fileID: 114453496444914630}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+  OutputSound: {fileID: 0}
+--- !u!114 &114453496444914630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d9145fe859f3f43b70217bb7b74936, type: 3}
+  m_Name: Sine Osc
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -392, y: -56}
+  ports:
+    keys:
+    - AmpNode
+    - FreqNode
+    - OutputNode
+    values:
+    - _fieldName: AmpNode
+      _node: {fileID: 114453496444914630}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: FreqNode
+      _node: {fileID: 114453496444914630}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: OutputNode
+      _node: {fileID: 114453496444914630}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: OutputSound
+        node: {fileID: 114099731895078562}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  OutputNode: {fileID: 0}
+  DefaultAmp: 1
+  DefaultFreq: 440
+  AmpNode: {fileID: 0}
+  FreqNode: {fileID: 0}
