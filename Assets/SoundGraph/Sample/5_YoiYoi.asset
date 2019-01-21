@@ -1,0 +1,326 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f797d31a65b4c47b78ca83c1d57bfd, type: 3}
+  m_Name: 5_YoiYoi
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 114296011642660246}
+  - {fileID: 114343795097281644}
+  - {fileID: 114874188937579692}
+  - {fileID: 114525674253870422}
+  - {fileID: 114179582277208574}
+  - {fileID: 0}
+--- !u!114 &114179582277208574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d9145fe859f3f43b70217bb7b74936, type: 3}
+  m_Name: Sine Osc
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1000, y: -376}
+  ports:
+    keys:
+    - AmpNode
+    - FreqNode
+    - OutputNode
+    - PhaseNode
+    values:
+    - _fieldName: AmpNode
+      _node: {fileID: 114179582277208574}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: FreqNode
+      _node: {fileID: 114179582277208574}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: OutputNode
+      _node: {fileID: 114179582277208574}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: In
+        node: {fileID: 114525674253870422}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: PhaseNode
+      _node: {fileID: 114179582277208574}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+  OutputNode: {fileID: 0}
+  DefaultAmp: 1
+  DefaultFreq: 0.7
+  DefaultPhase: 0
+  AmpNode: {fileID: 0}
+  FreqNode: {fileID: 0}
+  PhaseNode: {fileID: 0}
+--- !u!114 &114296011642660246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2011e4b393323fb468af24f9b71f32e0, type: 3}
+  m_Name: Output Master
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -216, y: -392}
+  ports:
+    keys:
+    - OutputSound
+    values:
+    - _fieldName: OutputSound
+      _node: {fileID: 114296011642660246}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: OutputNode
+        node: {fileID: 114343795097281644}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+  OutputSound: {fileID: 0}
+--- !u!114 &114343795097281644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d9145fe859f3f43b70217bb7b74936, type: 3}
+  m_Name: Sine Osc
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -456, y: -392}
+  ports:
+    keys:
+    - AmpNode
+    - FreqNode
+    - OutputNode
+    - PhaseNode
+    values:
+    - _fieldName: AmpNode
+      _node: {fileID: 114343795097281644}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: FreqNode
+      _node: {fileID: 114343795097281644}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: OutputNode
+        node: {fileID: 114525674253870422}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: OutputNode
+      _node: {fileID: 114343795097281644}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: OutputSound
+        node: {fileID: 114296011642660246}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+    - _fieldName: PhaseNode
+      _node: {fileID: 114343795097281644}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: OutputNode
+        node: {fileID: 114874188937579692}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+  OutputNode: {fileID: 0}
+  DefaultAmp: 1
+  DefaultFreq: 440
+  DefaultPhase: 0
+  AmpNode: {fileID: 0}
+  FreqNode: {fileID: 0}
+  PhaseNode: {fileID: 0}
+--- !u!114 &114525674253870422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef81cad4a4c9f094eb942a22ea421ada, type: 3}
+  m_Name: Remap
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -728, y: -392}
+  ports:
+    keys:
+    - In
+    - OutputNode
+    values:
+    - _fieldName: In
+      _node: {fileID: 114525674253870422}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: OutputNode
+        node: {fileID: 114179582277208574}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: OutputNode
+      _node: {fileID: 114525674253870422}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: FreqNode
+        node: {fileID: 114343795097281644}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  OutputNode: {fileID: 0}
+  In: {fileID: 0}
+  InMin: -1
+  InMax: 1
+  OutMin: 100
+  OutMax: 210
+--- !u!114 &114874188937579692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d9145fe859f3f43b70217bb7b74936, type: 3}
+  m_Name: Sine Osc
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -728, y: -232}
+  ports:
+    keys:
+    - AmpNode
+    - FreqNode
+    - PhaseNode
+    - OutputNode
+    values:
+    - _fieldName: AmpNode
+      _node: {fileID: 114874188937579692}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: FreqNode
+      _node: {fileID: 114874188937579692}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: PhaseNode
+      _node: {fileID: 114874188937579692}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _dynamic: 0
+    - _fieldName: OutputNode
+      _node: {fileID: 114874188937579692}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: PhaseNode
+        node: {fileID: 114343795097281644}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  OutputNode: {fileID: 0}
+  DefaultAmp: 1
+  DefaultFreq: 1800
+  DefaultPhase: 0
+  AmpNode: {fileID: 0}
+  FreqNode: {fileID: 0}
+  PhaseNode: {fileID: 0}
+--- !u!114 &114903792417912858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be86366df013726459bca226fcc116eb, type: 3}
+  m_Name: Curve
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1160, y: -616}
+  ports:
+    keys:
+    - OutputNode
+    values:
+    - _fieldName: OutputNode
+      _node: {fileID: 114903792417912858}
+      _typeQualifiedName: SoundNodeGraph.BaseSoundNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _dynamic: 0
+  OutputNode: {fileID: 0}
+  _curve:
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Volume: -1
