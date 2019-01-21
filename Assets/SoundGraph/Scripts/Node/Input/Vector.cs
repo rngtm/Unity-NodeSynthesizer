@@ -1,4 +1,4 @@
-namespace SoundNodeGraph.Math
+namespace SoundNodeGraph.Input
 {
     [System.Serializable]
     public class Vector : BaseSoundNode
