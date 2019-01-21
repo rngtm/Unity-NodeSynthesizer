@@ -9,7 +9,7 @@ namespace SoundNodeGraph
     {
         [SerializeField] SoundGraph _graph;
         const int maxAudioPos = 48000 * 120;
-        double audioPos = 0;
+        int audioPos = 0;
         public const double fs = 48000; // sample frequency
         System.Random rand;
         [SerializeField] double previewValue;
@@ -26,7 +26,7 @@ namespace SoundNodeGraph
             {
                 double audioTime = audioPos / fs;
                 audioPos++;
-                float sound = (float)_graph.GetSoundValue((float)audioTime);
+                float sound = (float)_graph.GetSoundValue(audioTime);
                 for (int i = 0; i < channels; i++)
                 {
                     data[dst++] = sound;
