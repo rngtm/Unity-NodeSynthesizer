@@ -3,31 +3,39 @@ using XNode;
 
 namespace SoundNodeGraph.Generator
 {
-    // [NodeWidth(180)]
+    /// <summary>
+    /// sine wave oscillator
+    /// </summary>
     public class SineOsc : BaseSoundNode
     {
-        public double DefaultAmp = 1f;
-        public double DefaultFreq = 440f;
+        public double DefaultAmp = 1;
+        public double DefaultFreq = 440;
+        public double DefaultPhase = 0;
 
         [Input(backingValue = ShowBackingValue.Never, connectionType = ConnectionType.Override)] 
         public BaseSoundNode AmpNode;
         [Input(backingValue = ShowBackingValue.Never, connectionType = ConnectionType.Override)] 
         public BaseSoundNode FreqNode;
-        
-        protected override void Init()
-        {
-        }
+        [Input(backingValue = ShowBackingValue.Never, connectionType = ConnectionType.Override)] 
+        public BaseSoundNode PhaseNode;
 
         public override double GetSoundValue(double time)
         {
-            BaseSoundNode freqInput = GetInputValue(nameof(FreqNode), FreqNode);
-            BaseSoundNode ampInput = GetInputValue(nameof(AmpNode), AmpNode);
+            BaseSoundNode freqInput = GetInputValue<BaseSoundNode>(nameof(FreqNode), null);
+            BaseSoundNode ampInput = GetInputValue<BaseSoundNode>(nameof(AmpNode), null);
+            BaseSoundNode phaseInput = GetInputValue<BaseSoundNode>(nameof(PhaseNode), null);
+            double freq = DefaultFreq;
+            double amp = DefaultAmp;
+            double phase = DefaultPhase;
 
-            double freq = freqInput != null ? freqInput.GetSoundValue(time) : DefaultFreq;
-            double amp = ampInput != null ? ampInput.GetSoundValue(time) : DefaultAmp;
+            if (freqInput != null)
+                freq = freqInput.GetSoundValue(time);
+            if (ampInput != null)
+                amp = ampInput.GetSoundValue(time);
+            if (phaseInput != null)
+                phase = phaseInput.GetSoundValue(time);
 
-            double phase = (freq * time) % 1.0;
-            return (double)(System.Math.Sin(2f * System.Math.PI * (double)phase) * amp);
+            return System.Math.Sin(2f * System.Math.PI * freq * time + phase) * amp;
         }
     }
 }
